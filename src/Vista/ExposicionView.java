@@ -1,6 +1,6 @@
-package src.Vista;
+package Vista;
 
-import src.Modelo.Exposicion;
+import Modelo.Exposicion;
 
 import java.util.List;
 

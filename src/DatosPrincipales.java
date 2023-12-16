@@ -1,6 +1,4 @@
-package src;
-
-import src.Modelo.*;
+import Modelo.*;
 
 import java.util.ArrayList;
 import java.util.List;

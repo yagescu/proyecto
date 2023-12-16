@@ -1,6 +1,6 @@
-package src.Vista;
+package Vista;
 
-import src.Modelo.Artista;
+import Modelo.Artista;
 
 import java.util.List;
 

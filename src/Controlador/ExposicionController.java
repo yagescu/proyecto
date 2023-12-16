@@ -1,12 +1,15 @@
-package src.Controlador;
+package Controlador;
 
-import com.thoughtworks.xstream.XStream;
-import src.Modelo.*;
-import src.Vista.ExposicionView;
+
+import Modelo.*;
+import Vista.ExposicionView;
+import com.google.gson.Gson;
+import org.bson.Document;
 
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class ExposicionController {
@@ -153,6 +156,7 @@ public class ExposicionController {
         }
     }
 
+    /* cambiar a json
     public void ExportarExposicionesAXML() {
         try {
             XStream xstream = new XStream();
@@ -164,5 +168,42 @@ public class ExposicionController {
             e.printStackTrace();
         }
         modelo.getExposiciones();
+
+
+
+
+
+
+
+
+
+
+
+
+        //Creación del objeto a serializar
+Person person = new Person("11111111", "Carlos", "Saenz");
+//Creación del objeto que utilizaré para convertir
+Gson g = new Gson();
+//Conversión del objeto a JSON, en un String
+String personJSON= g.toJson(person);
+//Creación de un documento utilizando el anterior JSON
+Document d = Document.parse(personJSON);
+
+bu sadece bir artist icin yapiyor
+    }*/
+    public void ExportarExposicionesAJSON() {
+        List<Exposicion> exposicionList = new ArrayList<>();
+        Gson gson = new Gson();
+
+        // Crear una lista de documentos (JSON convertidos a Document)
+        List<Document> documentos = new ArrayList<>();
+
+        // Recorrer la lista de artistas y convertir cada uno a JSON y luego a Document
+        for (Exposicion exposicion : exposicionList) {
+            String artistJSON = gson.toJson(exposicion);
+            Document exposicionDocument = Document.parse(artistJSON);
+            documentos.add(exposicionDocument);
+        }
+
     }
 }

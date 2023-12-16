@@ -1,8 +1,8 @@
-package src.Controlador;
+package Controlador;
 
-import src.Modelo.Artista;
-import src.Modelo.ArtistaModel;
-import src.Vista.ArtistaView;
+import Modelo.Artista;
+import Modelo.ArtistaModel;
+import Vista.ArtistaView;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -25,7 +25,7 @@ public class ArtistaController {
     }
 
     public void eliminarArtista() {
-        vista.mostrarArtistas(modelo.getArtistas());
+        vista.mostrarArtistas(modelo.verArtistas());
 
         // Solicitar al usuario que ingrese el ID de la artista que desea eliminar
         System.out.print("Ingrese el ID del artista que desea eliminar: ");
@@ -41,7 +41,7 @@ public class ArtistaController {
                 if (artistaEncontrada) {
                     modelo.eliminarArtista(id);
                     vista.mostrarMensaje("Se ha eliminado artista.");
-                    vista.mostrarArtistas(modelo.getArtistas());
+                    vista.mostrarArtistas(modelo.verArtistas());
                 } else {
                     System.out.println("Error: Artista no encontrado.");
                 }
@@ -56,7 +56,7 @@ public class ArtistaController {
 
 
     public void editarArtista() {
-        vista.mostrarArtistas(modelo.getArtistas());
+        vista.mostrarArtistas(modelo.verArtistas());
         System.out.println();
 
         // Solicitar al usuario que ingrese el ID de la artista que desea editar

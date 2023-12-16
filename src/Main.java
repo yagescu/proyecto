@@ -1,12 +1,10 @@
-package src;
-
-import src.Controlador.ArtistaController;
-import src.Controlador.ExposicionController;
-import src.Modelo.*;
-import src.Vista.ArtistaView;
-import src.Controlador.ObraDeArteController;
-import src.Vista.ExposicionView;
-import src.Vista.ObraDeArteView;
+import Controlador.ArtistaController;
+import Controlador.ExposicionController;
+import Modelo.*;
+import Vista.ArtistaView;
+import Controlador.ObraDeArteController;
+import Vista.ExposicionView;
+import Vista.ObraDeArteView;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -105,7 +103,7 @@ public class Main {
 
                     case 2:
                         // Mostrar los artistas del sistema
-                        controlador.vista.mostrarArtistas(controlador.modelo.getArtistas());
+                        controlador.vista.mostrarArtistas(ArtistaModel.verArtistas());
                         break;
                     case 3:
                         controlador.eliminarArtista();
@@ -144,8 +142,8 @@ public class Main {
             switch (opcionObras) {
                 case 1:
                     // Mostrar la lista de artistas antes de agregar una nueva obra de arte
-                    controladorArtista.modelo.obtenerListaDeArtistasComoCadenas();
-
+                   controladorArtista.modelo.obtenerListaDeArtistasComoCadenas();
+                  //  controladorArtista.modelo.verArtistas();
                     System.out.print("Ingrese el ID del artista para la nueva obra de arte: ");
                     int idArtista = scanner.nextInt();
                     scanner.nextLine();
@@ -170,7 +168,7 @@ public class Main {
                     break;
                 case 2:
                     // Mostrar las obras de arte del sistema
-                    controlador.vista.mostrarObrasDeArte(controlador.modelo.getObrasDeArte());
+                    controlador.vista.mostrarObrasDeArte(ObraDeArteModel.verObraDeArte());
                     break;
                 case 3:
                     controlador.eliminarObraDeArte();
@@ -261,7 +259,7 @@ public class Main {
                     controladorExposicion.editarExposicion();
                     break;
                 case 5:
-                    controladorExposicion.ExportarExposicionesAXML();
+                    // controladorExposicion.ExportarExposicionesAXML();
                     break;
                 case 6:
                     return;

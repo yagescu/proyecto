@@ -1,7 +1,7 @@
-package src.Vista;
+package Vista;
 
 
-import src.Modelo.ObraDeArte;
+import Modelo.ObraDeArte;
 
 import java.util.List;
 

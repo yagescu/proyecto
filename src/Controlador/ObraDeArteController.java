@@ -1,11 +1,11 @@
-package src.Controlador;
+package Controlador;
 
-import src.Modelo.Artista;
-import src.Modelo.ArtistaModel;
+import Modelo.Artista;
+import Modelo.ArtistaModel;
 
-import src.Modelo.ObraDeArte;
-import src.Modelo.ObraDeArteModel;
-import src.Vista.ObraDeArteView;
+import Modelo.ObraDeArte;
+import Modelo.ObraDeArteModel;
+import Vista.ObraDeArteView;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -30,11 +30,11 @@ public class ObraDeArteController {
         vista.mostrarMensaje("Se ha agregado una nueva obra de arte.");
 
         // Mostrar las obras de arte despues de agregar una nueva
-        vista.mostrarObrasDeArte(modelo.getObrasDeArte());
+        vista.mostrarObrasDeArte(modelo.verObraDeArte());
     }
 
     public void eliminarObraDeArte() {
-        vista.mostrarObrasDeArte(modelo.getObrasDeArte());
+        vista.mostrarObrasDeArte(modelo.verObraDeArte());
 
         // Solicitar al usuario que ingrese el ID de la obra de arte que desea eliminar
         System.out.print("Ingrese el ID de la obra de arte que desea eliminar: ");
@@ -48,7 +48,7 @@ public class ObraDeArteController {
                 if (obraExiste) {
                     modelo.eliminarObraDeArte(id);
                     vista.mostrarMensaje("Se ha eliminado obra de arte.");
-                    vista.mostrarObrasDeArte(modelo.getObrasDeArte());
+                    vista.mostrarObrasDeArte(modelo.verObraDeArte());
                 } else {
                     System.out.println("Error: Obra de arte no encontrado.");
                 }
@@ -61,7 +61,7 @@ public class ObraDeArteController {
     }
 
     public void editarObraDeArte(ArtistaController controladorArtista) {
-        vista.mostrarObrasDeArte(modelo.getObrasDeArte());
+        vista.mostrarObrasDeArte(modelo.verObraDeArte());
         System.out.println();
 
         // Solicitar al usuario que ingrese el ID de la obra de arte que desea editar
@@ -143,7 +143,7 @@ public class ObraDeArteController {
             // Llamar al método editarObraDeArte con los nuevos datos
             modelo.editarObraDeArte(id, obraDeArteActual, nuevoArtista);
             System.out.println("Obra de arte editada correctamente.");
-            vista.mostrarObrasDeArte(modelo.getObrasDeArte());
+            vista.mostrarObrasDeArte(modelo.verObraDeArte());
         } else {
             System.out.println("Obra de arte no encontrada.");
         }
